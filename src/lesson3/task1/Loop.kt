@@ -73,7 +73,17 @@ fun digitCountInNumber(n: Int, m: Int): Int =
  *
  * Использовать операции со строками в этой задаче запрещается.
  */
-fun digitNumber(n: Int): Int = TODO()
+fun digitNumber(n: Int): Int {
+    var count = 1
+    var number = n
+    while (number / 10 != 0) {
+        if (number >= 10) {
+            count++
+            number /= 10
+        } else return count
+    }
+    return count
+}
 
 /**
  * Простая (2 балла)
@@ -98,14 +108,25 @@ fun fib(n: Int): Int {
  *
  * Для заданного числа n > 1 найти минимальный делитель, превышающий 1
  */
-fun minDivisor(n: Int): Int = TODO()
+fun minDivisor(n: Int): Int {
+    for (i in 2..n / 2) {
+        if (n % i == 0) return i
+    }
+    return n
+}
+
 
 /**
  * Простая (2 балла)
  *
  * Для заданного числа n > 1 найти максимальный делитель, меньший n
  */
-fun maxDivisor(n: Int): Int = TODO()
+fun maxDivisor(n: Int): Int {
+    for (i in n - 1 downTo 2) {
+        if (n % i == 0) return i
+    }
+    return 1
+}
 
 /**
  * Простая (2 балла)
@@ -144,15 +165,6 @@ fun gcd(m: Int, n: Int): Int {
     }
     return div
 }
-
-/**
- * Средняя (3 балла)
- *
- * Определить, являются ли два заданных числа m и n взаимно простыми.
- * Взаимно простые числа не имеют общих делителей, кроме 1.
- * Например, 25 и 49 взаимно простые, а 6 и 8 -- нет.
- */
-fun isCoPrime(m: Int, n: Int): Boolean = gcd(m, n) == 1
 
 /**
  * Средняя (3 балла)
