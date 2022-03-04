@@ -3,15 +3,12 @@
 package lesson2.task1
 
 import lesson1.task1.discriminant
-<<<<<<< .merge_file_a10756
 import kotlin.math.*
-=======
 import lesson1.task1.sqr
 import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.sqrt
 import kotlin.math.min
->>>>>>> .merge_file_a12512
 
 // Урок 2: ветвления (здесь), логический тип (см. 2.2).
 // Максимальное количество баллов = 6
@@ -75,13 +72,6 @@ fun minBiRoot(a: Double, b: Double, c: Double): Double {
  * Мой возраст. Для заданного 0 < n < 200, рассматриваемого как возраст человека,
  * вернуть строку вида: «21 год», «32 года», «12 лет».
  */
-<<<<<<< .merge_file_a10756
-fun ageDescription(age: Int): String = when {
-    age / 10 % 10 == 1 || age % 10 == 0 -> "$age лет"
-    age % 10 == 1 -> "$age год"
-    age % 10 < 5 -> "$age года"
-    else -> "$age лет"
-=======
 fun ageDescription(age: Int): String {
     val units = age % 10
     val dozens = age % 100
@@ -91,7 +81,6 @@ fun ageDescription(age: Int): String {
         units in 2..4 -> "$age года"
         else -> "$age лет"
     }
->>>>>>> .merge_file_a12512
 }
 
 /**
@@ -176,7 +165,6 @@ fun rookOrBishopThreatens(
  * Если такой треугольник не существует, вернуть -1.
  */
 fun triangleKind(a: Double, b: Double, c: Double): Int {
-<<<<<<< .merge_file_a10756
     val maxSide = maxOf(a, b, c)
     val minSide = minOf(a, b, c)
     val mediumSide = mediumOf(a, b, c)
@@ -186,19 +174,6 @@ fun triangleKind(a: Double, b: Double, c: Double): Int {
     val cos = (mediumSide * mediumSide + minSide * minSide - maxSide * maxSide) / (2 * mediumSide * minSide)
     return (-sign(cos) + 1).toInt()
 
-=======
-    if (a < b + c && b < a + c && c < a + b) {
-        val cosA = (sqr(b) + sqr(c) - sqr(a)) / (2 * b * c)
-        val cosB = (sqr(c) + sqr(a) - sqr(b)) / (2 * a * c)
-        val cosC = (sqr(a) + sqr(b) - sqr(c)) / (2 * a * b)
-        return when {
-            sqr(a) == sqr(b) + sqr(c) -> 1
-            cosA < 0 || cosB < 0 || cosC < 0 -> 2
-            else -> 0
-        }
-    }
-    return -1
->>>>>>> .merge_file_a12512
 }
 
 /**
@@ -210,21 +185,6 @@ fun triangleKind(a: Double, b: Double, c: Double): Int {
  * Если пересечения нет, вернуть -1.
  */
 fun segmentLength(a: Int, b: Int, c: Int, d: Int): Int {
-<<<<<<< .merge_file_a10756
-    val m = maxOf(a, b, c, d)
-    val n = minOf(a, b, c, d)
-    val endToEndLength = m - n
-    val abLength = b - a
-    val cdLength = d - c
-    return if (endToEndLength > abLength + cdLength) -1
-    else abLength + cdLength - endToEndLength
-}
-
-fun mediumOf(a: Double, b: Double, c: Double) = a + b + c - maxOf(a, b, c) - minOf(a, b, c)
-
-fun mediumOf(a: Int, b: Int, c: Int) = mediumOf(a.toDouble(), b.toDouble(), c.toDouble())
-=======
     if (b < c || d < a) return -1
     return min(b, d) - max(a, c)
 }
->>>>>>> .merge_file_a12512
